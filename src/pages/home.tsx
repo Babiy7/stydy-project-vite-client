@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, JSX} from 'react';
 import { useNavigate } from 'react-router-dom';
+import {TCharacter} from "../types.ts";
 
-type TCharacter = {
-  created: string,
-  gender: string,
-  id: number,
-  image: string,
-  name: string,
-  species: string,
-  status: string,
-  type: string,
-}
-
-const Home = () => {
+const Home = (): JSX.Element => {
   const [characters, setCharacters] = useState<TCharacter[]>([]);
   const navigate = useNavigate();
 

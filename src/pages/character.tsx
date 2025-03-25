@@ -1,18 +1,8 @@
-import { useState, useEffect } from 'react';
+import {useState, useEffect, JSX} from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import {TCharacter} from "../types.ts";
 
-type TCharacter = {
-  created: string,
-  gender: string,
-  id: number,
-  image: string,
-  name: string,
-  species: string,
-  status: string,
-  type: string,
-}
-
-const Character = () => {
+const Character = (): JSX.Element => {
   const [character, setCharacter] = useState<TCharacter>()
   const params = useParams();
   const navigate = useNavigate();
@@ -33,7 +23,7 @@ const Character = () => {
   }
 
   return (
-    <div>
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
       <h1>{character.name}</h1>
       <img src={character.image} alt={character.name} />
       <button onClick={() => navigate('/')}>Back to Character</button>
